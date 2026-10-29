@@ -2,8 +2,8 @@ name: Build & Sync
 
 on:
   schedule:
-    # Run daily at 08:00 UTC (13:30 IST)
-    - cron: '0 8 * * *'
+    # Run every alternate day at 08:00 UTC (13:30 IST) - odd days of the month
+    - cron: '0 8 */2 * *'
   workflow_dispatch:
 
 permissions:
