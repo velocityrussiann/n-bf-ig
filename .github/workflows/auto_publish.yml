@@ -20,11 +20,14 @@ jobs:
       GOOGLE_DRIVE_AUDIO_FOLDER_ID: ${{ secrets.GOOGLE_DRIVE_AUDIO_FOLDER_ID }}
       GOOGLE_DRIVE_IMAGE_FOLDER_ID: ${{ secrets.GOOGLE_DRIVE_IMAGE_FOLDER_ID }}
       GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
-      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
-      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
-      YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+      META_LONG_LIVED_ACCESS_TOKEN: ${{ secrets.META_LONG_LIVED_ACCESS_TOKEN }}
       FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
       FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+      R2_S3_ENDPOINT: ${{ secrets.R2_S3_ENDPOINT }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
       POLLINATIONS_API_KEY: ${{ secrets.POLLINATIONS_API_KEY }}
       POLLINATIONS_ENDPOINT: ${{ secrets.POLLINATIONS_ENDPOINT }}
       CHANNEL_NAME: "Neon Beats Factory"
@@ -35,7 +38,6 @@ jobs:
       TARGET_HEIGHT: "1920"
       REEL_DURATION: "45"
       REEL_START_MODE: "middle"
-      YT_PLAYLIST_TITLE: "Neon Beats Factory | EDM Shorts & Reels"
 
     steps:
       - name: Checkout repository
@@ -67,9 +69,12 @@ jobs:
             "GOOGLE_DRIVE_AUDIO_FOLDER_ID"
             "GOOGLE_DRIVE_IMAGE_FOLDER_ID"
             "GOOGLE_SERVICE_ACCOUNT_KEY"
-            "YT_CLIENT_ID"
-            "YT_CLIENT_SECRET"
-            "YT_REFRESH_TOKEN"
+            "FB_PAGE_ID"
+            "IG_USER_ID"
+            "R2_BUCKET_NAME"
+            "R2_S3_ENDPOINT"
+            "R2_ACCESS_KEY_ID"
+            "R2_SECRET_ACCESS_KEY"
           )
 
           missing=0
@@ -81,6 +86,13 @@ jobs:
               echo "Found: $s"
             fi
           done
+
+          if [ -z "$META_LONG_LIVED_ACCESS_TOKEN" ] && [ -z "$FB_PAGE_ACCESS_TOKEN" ]; then
+            echo "Missing: META_LONG_LIVED_ACCESS_TOKEN or FB_PAGE_ACCESS_TOKEN"
+            missing=1
+          else
+            echo "Found: Meta access token"
+          fi
 
           if [ $missing -eq 1 ]; then
             echo "Required secrets are missing! Pipeline cannot proceed."
