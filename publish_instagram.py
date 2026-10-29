@@ -87,7 +87,8 @@ def create_reel_container(ig_user_id, token, video_url, caption):
         "media_type": "REELS",
         "video_url": video_url,
         "caption": caption,
-        "share_to_feed": "true",
+        # False = reel lives only in the Reels tab, never on the profile grid.
+        "share_to_feed": "false",
     })
     cid = res.get("id")
     if not cid:
