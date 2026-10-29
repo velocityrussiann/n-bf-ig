@@ -114,8 +114,11 @@ def run_pipeline():
             tags.append(extra)
 
     # YouTube classifies vertical <=60s videos as Shorts automatically;
-    # the #Shorts hashtag makes the intent explicit.
-    title = base_title if '#shorts' in base_title.lower() else f"{base_title} #Shorts"
+    # the #Shorts hashtag makes the intent explicit (kept within the 100-char limit).
+    if '#shorts' in base_title.lower():
+        title = base_title[:100]
+    else:
+        title = f"{base_title[:92].rstrip()} #Shorts"
 
     print(f"  Title: {title}")
     print(f"  Song Display Name: {song_name}")

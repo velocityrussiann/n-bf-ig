@@ -168,6 +168,9 @@ def upload_to_youtube(video_path, title, description, tags=None, category_id='10
 
     youtube = get_authenticated_service()
 
+    # YouTube rejects titles over 100 characters - clamp defensively.
+    title = (title or "").strip()[:100]
+
     body = {
         'snippet': {
             'title': title,
