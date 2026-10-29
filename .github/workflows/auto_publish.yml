@@ -1,0 +1,116 @@
+name: Build & Sync
+
+on:
+  schedule:
+    # Run daily at 08:00 UTC (13:30 IST)
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: write
+
+    env:
+      GOOGLE_DRIVE_AUDIO_FOLDER_ID: ${{ secrets.GOOGLE_DRIVE_AUDIO_FOLDER_ID }}
+      GOOGLE_DRIVE_IMAGE_FOLDER_ID: ${{ secrets.GOOGLE_DRIVE_IMAGE_FOLDER_ID }}
+      GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+      FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+      FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+      POLLINATIONS_API_KEY: ${{ secrets.POLLINATIONS_API_KEY }}
+      POLLINATIONS_ENDPOINT: ${{ secrets.POLLINATIONS_ENDPOINT }}
+      CHANNEL_NAME: "Neon Beats Factory"
+      BG_DARKEN_FACTOR: "0.50"
+      VISUALIZER_COLOR: "variety"
+      VISUALIZER_DIAMETER: "780"
+      TARGET_WIDTH: "1080"
+      TARGET_HEIGHT: "1920"
+      REEL_DURATION: "45"
+      REEL_START_MODE: "middle"
+      YT_PLAYLIST_TITLE: "Neon Beats Factory | EDM Shorts & Reels"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install FFmpeg & System Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libgl1 libglib2.0-0 libsndfile1
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Validate Secrets
+        run: |
+          echo "Validating environment secrets..."
+          required_secrets=(
+            "GOOGLE_DRIVE_AUDIO_FOLDER_ID"
+            "GOOGLE_DRIVE_IMAGE_FOLDER_ID"
+            "GOOGLE_SERVICE_ACCOUNT_KEY"
+            "YT_CLIENT_ID"
+            "YT_CLIENT_SECRET"
+            "YT_REFRESH_TOKEN"
+          )
+
+          missing=0
+          for s in "${required_secrets[@]}"; do
+            if [ -z "${!s}" ]; then
+              echo "Missing: $s"
+              missing=1
+            else
+              echo "Found: $s"
+            fi
+          done
+
+          if [ $missing -eq 1 ]; then
+            echo "Required secrets are missing! Pipeline cannot proceed."
+            exit 1
+          fi
+          echo "All secrets verified."
+
+      - name: Run Pipeline
+        run: |
+          echo "Launching pipeline..."
+          python auto_pipeline.py
+          exit_code=$?
+          if [ $exit_code -ne 0 ]; then
+            echo "Pipeline failed with exit code $exit_code"
+            exit $exit_code
+          fi
+
+      - name: Commit and Push published_songs.json
+        if: always()
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+          git pull origin main --rebase || true
+          git add -f published_songs.json
+
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: update published songs log [skip ci]"
+            git push origin main
+            echo "Committed and pushed published_songs.json"
+          else
+            echo "No changes to published_songs.json"
+          fi

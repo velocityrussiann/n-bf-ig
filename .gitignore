@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+.env
+venv/
+env/
+.venv/
+
+# Processed & Temporary Media
+Processed_Videos/
+Published_Videos/
+output_videos/
+output_thumbnails/
+Audio/
+Images/
+temp/
+*.mp4
+*.wav
+*_sync.wav
+*_thumb.jpg
+*_thumb.png
+*_preview.jpg
+
+# Keep empty input folders
+!input_audio/.gitkeep
+!input_images/.gitkeep
+
+# System & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
