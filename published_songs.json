@@ -47,5 +47,29 @@
                 "timestamp": "2026-10-29T13:50:25+0000"
             }
         }
+    },
+    {
+        "song_name": "005 - Stay for the Afterglow.mp3",
+        "metadata": {
+            "title": "Neon Beats Factory (NBF) Bass Boosted Afterglow \u2014 Stay for the Festival Drop",
+            "description": "Turn the lights down and the energy up\u2014\u201cStay For The Afterglow\u201d by Neon Beats Factory (NBF) is a midnight-to-dawn EDM rush built for sweaty clubs, festival crowds, and instant replay. Expect euphoric hooks, big drops, and that \u201cjust one more song\u201d momentum.\n\nEvery beat is crafted to hit: punchy kicks, shimmering synth layers, and a glossy bassline that keeps pulling you forward. Watch the full 60 FPS visualizer in motion\u2014smooth, neon-saturated, and synced for maximum goosebumps from start to afterglow.\n\nTrack Chapters: 00:00 Intro \u2022 00:34 Groove Build \u2022 01:06 First Drop \u2022 01:44 Vocal Hook \u2022 02:25 Second Drop \u2022 03:08 Afterglow Outro. Upload specs: 1080p 60fps, 320kbps. #EDM #NeonBeatsFactory #DanceMusic #ClubHits #BassBoosted",
+            "song_index": 3,
+            "format": "mobile_1080x1920",
+            "destination": "instagram_reels",
+            "visualizer_color": {
+                "label": "artwork_accent",
+                "bgr": [
+                    255,
+                    214,
+                    10
+                ]
+            },
+            "instagram_uploaded": true,
+            "instagram_result": {
+                "id": "18020666651947587",
+                "url": "https://www.instagram.com/reel/DfIm2vgFflH/",
+                "timestamp": "2026-10-30T22:01:57+0000"
+            }
+        }
     }
 ]
