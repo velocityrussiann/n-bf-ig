@@ -62,7 +62,7 @@ def parse_titles_descriptions(filepath="titles_descriptions.txt"):
 
 def generate_viral_edm_metadata(audio_filename, channel_name="Neon Beats Factory"):
     """
-    Generates high-CTR, high-SEO YouTube metadata specifically tailored
+    Generates high-CTR, high-SEO Instagram Reels metadata specifically tailored
     for Electronic Dance Music (EDM) releases.
     """
     base = os.path.splitext(os.path.basename(audio_filename))[0].strip()
@@ -75,33 +75,13 @@ def generate_viral_edm_metadata(audio_filename, channel_name="Neon Beats Factory
     if not clean_title:
         clean_title = "Neon Energy"
 
-    viral_title = f"{clean_title} - {channel_name} (NBF) | Best Electronic Dance Music & Festival Drop"
+    viral_title = f"{clean_title} | {channel_name} (NBF) Festival Drop"
 
-    viral_description = f"""⚡ "{clean_title}" — {channel_name} (NBF)
+    viral_description = f"""\u26a1 "{clean_title}" \u2014 {channel_name} (NBF)
 
-Get ready for an unstoppable rush of festival energy. "{clean_title}" blends earth-shaking sub-bass, cutting-edge synthesizer sound design, and an infectious electronic groove that ignites dance floors and late-night drives.
+Turn the energy all the way up. "{clean_title}" is a peak-time EDM rush built for festival crowds, late-night drives, and endless replays \u2014 massive drops, glowing synths, and a groove that refuses to sit still.
 
-🎧 Best experienced with high-end headphones or club sound systems!
-
-🎵 Track Specifications:
-• Track: {clean_title}
-• Artist / Label: {channel_name} (NBF)
-• Genre: Electronic Dance Music (EDM) / Electro House / Bass Drop
-• Visualizer: 60 FPS Audio-Reactive 3D Core Visualizer
-• Quality: 1080P Full HD / 320kbps Audio
-
-⏱️ Track Chapters:
-0:00 - Nocturnal Synth Atmosphere
-0:25 - The Build & Tension
-0:45 - Explosive Mainstage Bass Drop
-1:30 - Harmonic Breakdown & Vocal Textures
-1:55 - Peak Climax Drop
-2:40 - Electric Horizon & Outro
-
-🔥 Save to your EDM Playlist & Subscribe (🔔):
-Join Neon Beats Factory for daily high-energy electronic music, cyberpunk soundscapes, and audio-reactive visualizers.
-
-#EDM #ElectronicDanceMusic #NeonBeatsFactory #NBF #ElectroHouse #BassDrop #FestivalEDM #DanceMusic #ClubHits #60FPSVisualizer"""
+\U0001f3a7 Follow {channel_name} for a fresh reel every day. Save this one and share it with someone who lives for the drop."""
 
     tags = [
         "edm",
@@ -132,7 +112,7 @@ Join Neon Beats Factory for daily high-energy electronic music, cyberpunk sounds
 def generate_metadata_pollinations(audio_filename, channel_name="Neon Beats Factory"):
     """
     Uses Pollinations AI (via official OpenAI-compatible endpoint) to generate
-    high-converting YouTube/Facebook EDM titles, descriptions, and tags.
+    high-converting Instagram Reels EDM titles, descriptions, and tags.
     """
     api_key = os.getenv("POLLINATIONS_API_KEY", "").strip()
     endpoint = os.getenv("POLLINATIONS_ENDPOINT", "https://gen.pollinations.ai/v1/chat/completions").strip()
@@ -148,12 +128,12 @@ def generate_metadata_pollinations(audio_filename, channel_name="Neon Beats Fact
 
     prompt = (
         f"You are the senior marketing director and SEO copywriter for '{channel_name}' (NBF), "
-        f"a premier Electronic Dance Music (EDM) label and YouTube/Facebook music brand.\n"
-        f"Create viral YouTube & Facebook video metadata for the new EDM release: '{clean_title}'.\n\n"
+        f"a premier Electronic Dance Music (EDM) label publishing daily Instagram Reels.\n"
+        f"Create viral Instagram Reels metadata for the new EDM release: '{clean_title}'.\n\n"
         f"Requirements:\n"
-        f"1. Title: High-CTR, exciting, under 95 characters. Must include '{channel_name} (NBF)' and a punchy keyword (e.g. 'Festival Drop', 'Club Hits', 'Bass Boosted', 'Slap House').\n"
-        f"2. Description: 3 engaging paragraphs. Paragraph 1 introduces the track and energetic mood. Paragraph 2 highlights the sound design and 60 FPS visualizer. Paragraph 3 includes track chapters, specs (1080p 60fps, 320kbps), and relevant hashtags (#EDM #NeonBeatsFactory #DanceMusic #ClubHits).\n"
-        f"3. Tags: An array of 15 highly searchable EDM keywords.\n\n"
+        f"1. Title: High-CTR, exciting, under 95 characters. MUST start with the song name '{clean_title}', then a separator and a punchy keyword (e.g. 'Festival Drop', 'Club Hits', 'Bass Boosted') plus '{channel_name} (NBF)'.\n"
+        f"2. Description: 2 short engaging paragraphs for an Instagram caption. Paragraph 1 introduces the track and its energetic mood. Paragraph 2 is a call to action (follow, share, save). No track chapters, no tech specs, no subscribe asks, no YouTube mentions. Plain text, no hashtags in the description.\n"
+        f"3. Tags: An array of 15 highly searchable EDM keywords, all lowercase, no '#' prefix.\n\n"
         f"Respond ONLY with a valid JSON object matching this schema:\n"
         f'{{"title": "...", "description": "...", "tags": ["tag1", "tag2", ...]}}\n'
         f"No markdown backticks or explanations outside JSON."

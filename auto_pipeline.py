@@ -75,17 +75,21 @@ def mark_as_published(song_name, metadata):
     print(f"[Pipeline] Successfully logged '{song_name}' to {PUBLISHED_LOG}")
 
 
-def build_reel_caption(title, tags):
-    """Reel caption: title + hashtags (no YouTube-isms)."""
-    base_tags = [t for t in (tags or []) if t.lower() not in ('shorts',)]
+def build_reel_caption(title, description, tags):
+    """Reel caption: title + description + lowercase hashtags (Instagram only)."""
+    banned = ('shorts', 'youtube', 'subscribe', 'youtuber')
+    base_tags = [t for t in (tags or []) if t.lower() not in banned]
     extra = ['reels', 'edm', 'electronicdancemusic', 'neonbeatsfactory', 'nbf']
     seen, hashtags = set(), []
     for t in base_tags + extra:
-        tag = '#' + ''.join(c for c in t if c.isalnum())
-        if tag.lower() not in seen and len(tag) > 1:
-            seen.add(tag.lower())
+        tag = '#' + ''.join(c for c in t.lower() if c.isalnum())
+        if tag not in seen and len(tag) > 1:
+            seen.add(tag)
             hashtags.append(tag)
-    return f"{title}\n.\n.\n{' '.join(hashtags[:15])}"
+    caption = f"{title}"
+    if description:
+        caption += f"\n\n{description.strip()}"
+    return caption + f"\n.\n.\n{' '.join(hashtags[:15])}"
 
 
 def run_pipeline():
@@ -149,7 +153,7 @@ def run_pipeline():
     print("\nSTEP 4: Publishing to Instagram (@neonbeatsfactory)...")
     from publish_instagram import upload_reel_to_instagram
 
-    caption = build_reel_caption(title, tags)
+    caption = build_reel_caption(title, description, tags)
 
     ig_result = None
     ig_success = False
