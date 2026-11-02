@@ -119,5 +119,29 @@
                 "timestamp": "2026-11-01T14:49:14+0000"
             }
         }
+    },
+    {
+        "song_name": "008 - When We Were Strangers.mp3",
+        "metadata": {
+            "title": "When We Were Strangers \u2014 Festival Drop | Neon Beats Factory (NBF)",
+            "description": "\u201cWhen We Were Strangers\u201d hits like a midnight flashback\u2014tender at first, then exploding into pure dance-floor electricity. Feel the rush, let the rhythm pull you in, and turn every moment into a memory worth chasing.\n\nFollow Neon Beats Factory (NBF) for daily EDM energy. Share this track with your crew, and save it for your next late-night drive or club-ready playlist.",
+            "song_index": 6,
+            "format": "mobile_1080x1920",
+            "destination": "instagram_reels",
+            "visualizer_color": {
+                "label": "emerald_mint",
+                "bgr": [
+                    140,
+                    255,
+                    30
+                ]
+            },
+            "instagram_uploaded": true,
+            "instagram_result": {
+                "id": "18167383402512804",
+                "url": "https://www.instagram.com/reel/DfP5J7zjl2p/",
+                "timestamp": "2026-11-02T17:56:26+0000"
+            }
+        }
     }
 ]
