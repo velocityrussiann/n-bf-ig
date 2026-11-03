@@ -144,7 +144,7 @@ def generate_metadata_pollinations(audio_filename, channel_name="Neon Beats Fact
         "Content-Type": "application/json"
     }
     payload = {
-        "model": "openai",
+        "model": "openai/gpt-5.4-nano",
         "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.7
     }
