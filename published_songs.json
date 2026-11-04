@@ -167,5 +167,29 @@
                 "timestamp": "2026-11-03T15:56:13+0000"
             }
         }
+    },
+    {
+        "song_name": "010 - Chasing the Last Light.mp3",
+        "metadata": {
+            "title": "Chasing The Last Light \u2014 Festival Drop Neon Beats Factory (NBF)",
+            "description": "Chasing The Last Light lights up the night with relentless energy, neon-ready hooks, and a rush of euphoria that pulls you forward from first beat to final drop.\n\nTurn it up, feel the momentum, and make sure the vibe doesn\u2019t fade\u2014follow Neon Beats Factory, share with your crew, and save for your next late-night session.",
+            "song_index": 8,
+            "format": "mobile_1080x1920",
+            "destination": "instagram_reels",
+            "visualizer_color": {
+                "label": "artwork_dominant",
+                "bgr": [
+                    255,
+                    51,
+                    10
+                ]
+            },
+            "instagram_uploaded": true,
+            "instagram_result": {
+                "id": "18647041660063623",
+                "url": "https://www.instagram.com/reel/DfU1lAYDyKb/",
+                "timestamp": "2026-11-04T16:01:36+0000"
+            }
+        }
     }
 ]
