@@ -355,5 +355,25 @@
             "instagram_uploaded": false,
             "instagram_result": null
         }
+    },
+    {
+        "song_name": "018 - Electric Between Us.mp3",
+        "metadata": {
+            "title": "Electric Between Us \u2014 Festival Drop Mode | Neon Beats Factory (NBF)",
+            "description": "Electric Between Us ignites your night with a high-voltage rush\u2014bright energy, irresistible momentum, and a drop that feels like sparks flying between two hearts. Turn it up and let the beat pull you in.",
+            "song_index": 16,
+            "format": "mobile_1080x1920",
+            "destination": "instagram_reels",
+            "visualizer_color": {
+                "label": "toxic_lime",
+                "bgr": [
+                    30,
+                    255,
+                    60
+                ]
+            },
+            "instagram_uploaded": false,
+            "instagram_result": null
+        }
     }
 ]
