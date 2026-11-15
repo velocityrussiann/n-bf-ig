@@ -375,5 +375,25 @@
             "instagram_uploaded": false,
             "instagram_result": null
         }
+    },
+    {
+        "song_name": "019 - One More Night Alive.mp3",
+        "metadata": {
+            "title": "One More Night Alive \u2014 Festival Drop Neon Beats Factory (NBF)",
+            "description": "One More Night Alive hits like a late-night heartbeat\u2014big room energy, euphoric lift-offs, and bass-driven momentum that keeps you moving from the first beat to the final glow.\n\nFollow Neon Beats Factory for daily EDM heat, save this for your next night out, and share it with your crew who lives for the drop.",
+            "song_index": 17,
+            "format": "mobile_1080x1920",
+            "destination": "instagram_reels",
+            "visualizer_color": {
+                "label": "artwork_complementary",
+                "bgr": [
+                    10,
+                    255,
+                    214
+                ]
+            },
+            "instagram_uploaded": false,
+            "instagram_result": null
+        }
     }
 ]
