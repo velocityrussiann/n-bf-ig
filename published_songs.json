@@ -435,5 +435,25 @@
             "instagram_uploaded": false,
             "instagram_result": null
         }
+    },
+    {
+        "song_name": "022 - Lights Fade Slowly.mp3",
+        "metadata": {
+            "title": "Lights Fade Slowly \u2014 Festival Drop Neon Beats Factory (NBF)",
+            "description": "Lights Fade Slowly brings a hypnotic glow to the night\u2014pulsing with unstoppable energy, bright synth vibes, and a drop that hits like a spotlight locking onto you. Turn it up and let the whole room move in sync.\n\nFollow Neon Beats Factory for daily EDM Reels, and don\u2019t keep this one to yourself\u2014share it with your crew and save it for your next late-night session.",
+            "song_index": 20,
+            "format": "mobile_1080x1920",
+            "destination": "instagram_reels",
+            "visualizer_color": {
+                "label": "artwork_dominant",
+                "bgr": [
+                    255,
+                    132,
+                    10
+                ]
+            },
+            "instagram_uploaded": false,
+            "instagram_result": null
+        }
     }
 ]
