@@ -535,5 +535,25 @@
             "instagram_uploaded": false,
             "instagram_result": null
         }
+    },
+    {
+        "song_name": "027 - We Don't Have to Say Goodbye.mp3",
+        "metadata": {
+            "title": "We Don't Have To Say Goodbye \u2014 Festival Drop Neon Beats Factory (NBF)",
+            "description": "Turn up the night with \u201cWe Don\u2019t Have To Say Goodbye\u201d\u2014a bold, feel-good EDM surge built for big smiles, bigger drops, and nonstop momentum. Let the energy carry you from the first beat to the afterglow.\n\nFollow Neon Beats Factory (NBF), share this with your crew, and save it for your next peak-time session.",
+            "song_index": 25,
+            "format": "mobile_1080x1920",
+            "destination": "instagram_reels",
+            "visualizer_color": {
+                "label": "artwork_accent",
+                "bgr": [
+                    10,
+                    132,
+                    255
+                ]
+            },
+            "instagram_uploaded": false,
+            "instagram_result": null
+        }
     }
 ]
