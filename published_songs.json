@@ -595,5 +595,25 @@
             "instagram_uploaded": false,
             "instagram_result": null
         }
+    },
+    {
+        "song_name": "030 - Heartbeat After Midnight.mp3",
+        "metadata": {
+            "title": "Heartbeat After Midnight \u2014 Midnight Festival Drop | Neon Beats Factory (NBF)",
+            "description": "Turn the city lights into thunder\u2014\u201cHeartbeat After Midnight\u201d hits with late-night energy, glittering momentum, and a pulse that refuses to slow down. Perfect for when you want the dancefloor to ignite the moment the clock flips.\n\nFollow Neon Beats Factory (NBF) for daily EDM releases, share this reel with your crew, and save it so you can replay the drop anytime.",
+            "song_index": 28,
+            "format": "mobile_1080x1920",
+            "destination": "instagram_reels",
+            "visualizer_color": {
+                "label": "artwork_dominant",
+                "bgr": [
+                    255,
+                    132,
+                    10
+                ]
+            },
+            "instagram_uploaded": false,
+            "instagram_result": null
+        }
     }
 ]
