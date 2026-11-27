@@ -615,5 +615,25 @@
             "instagram_uploaded": false,
             "instagram_result": null
         }
+    },
+    {
+        "song_name": "031 - Neon on the Water.mp3",
+        "metadata": {
+            "title": "Neon On The Water \u2014 Festival Drop \u2022 Neon Beats Factory (NBF)",
+            "description": "Dive into \u201cNeon On The Water\u201d and let the night spark to life\u2014bright synths, unstoppable rhythm, and that euphoric rush that hits like a wave. From the first beat to the final glow, it\u2019s pure EDM energy built for fast hearts and bigger crowds.\n\nFollow Neon Beats Factory (NBF) for daily Reels, then share \u201cNeon On The Water\u201d with your crew and save it for your next night out.",
+            "song_index": 29,
+            "format": "mobile_1080x1920",
+            "destination": "instagram_reels",
+            "visualizer_color": {
+                "label": "emerald_mint",
+                "bgr": [
+                    140,
+                    255,
+                    30
+                ]
+            },
+            "instagram_uploaded": false,
+            "instagram_result": null
+        }
     }
 ]
